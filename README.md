@@ -1,2 +1,1 @@
-Django-angular
-==============
+Django Angular
