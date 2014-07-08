@@ -21,3 +21,4 @@ celerybeat-schedule
 .htaccess
 
 django_angular/static/
+django_angular/settings/dev_local.py
