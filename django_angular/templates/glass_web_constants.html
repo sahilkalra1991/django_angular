@@ -2,7 +2,7 @@
 {% load url_tags %}
 
 <script>
-    GlassWeb.constant('GW_CONSTANTS', {
+    var angular_urls = {
         templateUrls: {
             'basePageUrl': '{% static "views/base.html" %}',
             'loginTemplateUrl': '{% static "views/login.html" %}',
@@ -11,5 +11,5 @@
         APIUrls: {
             'login_url': '{% url_reverse "api_login_url" %}'
         }
-    });
+    }
 </script>

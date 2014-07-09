@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% load compress %}
 {% load static from staticfiles %}
+
 {% block extra_js %}
     {% compress js %}
         {# Third party js plugins #}
@@ -22,6 +23,7 @@
 
         {# App config/constants js #}
         <script src="{% static 'scripts/config.js' %}"></script>
+        <script src="{% static 'scripts/constants.js' %}"></script>
 
         {# App services #}
         <script src="{% static 'scripts/services/user-service.js' %}"></script>
@@ -35,7 +37,6 @@
         <script src="{% static 'scripts/controllers/home-page-controller.js' %}"></script>
     {% endcompress %}
 
-    {% include 'glass_web_constants.html' %}
 {% endblock %}
 {% block extra_css %}
     {% compress css %}
