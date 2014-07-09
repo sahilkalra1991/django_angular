@@ -91,7 +91,7 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     #normpath(join(DJANGO_ROOT, 'assets')),
-    normpath(join(SITE_ROOT, 'ng_app')),
+    normpath(join(SITE_ROOT, 'angular_statics')),
 )
 
 # To Serve The Static Pages
@@ -131,6 +131,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'apps.glassweb.context_processors.add_settings',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders

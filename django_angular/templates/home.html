@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load compress %}
+{% load static from staticfiles %}
+{% block extra_js %}
+    {% compress js %}
+        {# Third party js plugins #}
+        <script src="{% static 'scripts/vendors/underscore-min.js' %}"></script> {# Required by restangular #}
+
+        {## ANGULAR SPECIFIC JS ##}
+
+        {# Angular libs #}
+        <script src="{% static 'scripts/vendors/angular-cookies.min.js' %}"></script>
+        <script src="{% static 'scripts/vendors/angular-route.min.js' %}"></script>
+
+        {# Third party angular plugin #}
+        <script src="{% static 'scripts/vendors/plugins/restangular.min.js' %}"></script>
+        <script src="{% static 'scripts/vendors/plugins/ngStorage.min.js' %}"></script>
+        <script src="{% static 'scripts/vendors/plugins/angular-cookie.min.js' %}"></script>
+
+        {# App init js #}
+        <script src="{% static 'scripts/init.js' %}"></script>
+
+        {# App config/constants js #}
+        <script src="{% static 'scripts/config.js' %}"></script>
+
+        {# App services #}
+        <script src="{% static 'scripts/services/user-service.js' %}"></script>
+        <script src="{% static 'scripts/services/logout-service.js' %}"></script>
+
+        {# App directives #}
+        <script src="{% static 'scripts/directives/form-validation-directive.js' %}"></script>
+
+        {# App controllers #}
+        <script src="{% static 'scripts/controllers/login-controller.js' %}"></script>
+        <script src="{% static 'scripts/controllers/home-page-controller.js' %}"></script>
+    {% endcompress %}
+
+    {% include 'glass_web_constants.html' %}
+{% endblock %}
+{% block extra_css %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/css/style.css' %}">
+    {% endcompress %}
+{% endblock %}
+{% block body %}
+    <body data-spy="scroll" id="data-ng-app" data-ng-app="GlassWeb">
+        <div data-ng-view id="wrap">
+        </div>
+    </body>
+{% endblock %}

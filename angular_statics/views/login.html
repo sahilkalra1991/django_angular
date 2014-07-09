@@ -1,0 +1,55 @@
+<div>
+    <h3>login</h3>
+    <form id="login-form"
+          name="loginForm"
+          novalidate >
+        <div class="alert alert-danger"
+             data-ng-show="loginFailure">
+            <span>Login failed! Please enter correct username/password!</span>
+        </div>
+        <div class="alert alert-danger"
+             data-ng-show="serverError">
+            <span>Some Error occurred! Please try again later or reload the page.</span>
+        </div>
+        <div>
+            <div class="form-group"
+                 data-ng-class="{error:loginForm.username.$dirty && loginForm.username.edited}">
+                <label> Username </label>
+                <input class="form-control"
+                       type="text"
+                       id="input_user_name"
+                       name="username"
+                       data-ng-model="user.user_name"
+                       required
+                       placeholder="Username"/>
+                <div class="text-danger"
+                     data-ng-show="loginForm.username.$dirty && loginForm.username.edited">
+                    <span data-ng-show="loginForm.username.$error.required">Username is required!</span>
+                </div>
+            </div>
+            <div class="form-group account-control-group last"
+                 data-ng-class="{error:loginForm.password.$dirty && loginForm.password.$invalid && loginForm.password.edited}">
+                <label> Password </label>
+                <input class="form-control"
+                       placeholder="Password"
+                       type="password" id="inputPassword"
+                       name="password"
+                       data-ng-model="user.password"
+                       required />
+                <div class="text-danger"
+                     data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid && loginForm.password.edited">
+                    <span>Password is required!</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="login-btn" class="pull-left"
+                    data-ng-click="login()"
+                    data-ng-disabled="loginForm.$invalid || isLoading"
+                    data-ng-class="{disabled: loginForm.$invalid || isLoading}">
+                <span data-ng-show="!isLoading">Login</span>
+                <span data-ng-show="isLoading">Logging In...</span>
+            </button>
+        </div>
+    </form>
+</div>

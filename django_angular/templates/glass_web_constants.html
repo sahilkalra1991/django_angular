@@ -1,0 +1,11 @@
+{% load static from staticfiles %}
+
+<script>
+    GlassWeb.constant('GW_CONSTANTS', {
+        templateUrls: {
+            'basePageUrl': '{% static "views/base.html" %}',
+            'loginTemplateUrl': '{% static "views/login.html" %}',
+            'homeTemplateUrl': '{% static "views/home.html" %}'
+        }
+    });
+</script>
