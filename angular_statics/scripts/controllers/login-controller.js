@@ -1,8 +1,8 @@
 var Login = GlassWeb.controller('Login',
 
-    ['$scope', 'Restangular', 'UserService','$routeParams','GW_CONSTANTS',
+    ['$scope', 'Restangular', 'UserService','GW_CONSTANTS',
 
-    function ($scope, Restangular, UserService, $routeParams, GW_CONSTS ) {
+    function ($scope, Restangular, UserService, GW_CONSTS ) {
         //page specific variables
         $scope.page = {
             templateName: 'loginTemplateUrl'
@@ -15,7 +15,7 @@ var Login = GlassWeb.controller('Login',
 
         $scope.isLoading = false;       //login submission progress flag
 
-        var login_user_service = new Restangular.one('api/login/');
+        var login_user_service = new Restangular.one(GW_CONSTS.APIUrls['login_url']);
 
         //login handler
         $scope.login = function(){
